@@ -1,0 +1,18 @@
+[{
+    "__obj_type": "TransformComponent",
+    "position": {
+        "__obj_type": "Vector3",
+        "x" : {"__obj_type": "int", "value": "0"},
+        "y" : {"__obj_type": "int", "value": "0"},
+        "z" : {"__obj_type": "int", "value": "2"}
+    }
+},
+{
+    "__obj_type": "RendererComponent",
+    "data": [
+        {"__obj_type": "int", "value": "1"},
+        {"__obj_type": "string", "value": "ana are mere"},
+        "2"
+    ]
+}
+]
