@@ -1,21 +1,11 @@
 [
     {"__obj_type": "Scene",
-     "name": {
-        "__obj_type": "string", 
-        "value": "scene1"
-     },
-     "dataPath": {
-         "__obj_type": "string",
-         "value": "tests/test_data/test_scene1"}
+     "name": "scene1",
+     "dataPath": "tests/test_data/test_scene1"
      },
     {"__obj_type": "Scene",
-    "name": {
-        "__obj_type": "string",
-        "value": "scene2"
-    },
-    "dataPath": {
-        "__obj_type": "string",
-        "value": "tests/test_data/test_scene2"}
+    "name": "scene2",
+    "dataPath": "tests/test_data/test_scene2"
     }
 ]
     

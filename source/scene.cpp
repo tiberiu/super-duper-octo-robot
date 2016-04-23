@@ -23,12 +23,9 @@ void Scene::AddGameObject(GameObject* gameObject) {
 void Scene::LoadScene() {    
     this->loaded = true;
 
-    cout << "LOADING SCENE" << endl;
     Serializer serializer = Serializer();
     string raw_data = serializer.LoadRawData(this->dataPath);
-    cout << "LOADED SCENE RAW DATA" << endl;
     serializer.LoadScene(raw_data, *this);
-    cout << "DONE" << endl;
 }
 
  void Scene::UnloadScene() {

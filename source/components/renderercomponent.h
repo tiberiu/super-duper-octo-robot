@@ -6,6 +6,7 @@
 // EngineComponent(RendererComponent)
 class RendererComponent : public Component {
 public:
+    // EngineComponentField(Mesh, mesh)
     Mesh* mesh;
 
     void Update();

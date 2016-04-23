@@ -1,12 +1,11 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <iostream>
 
 #include "source/serializer/encoder.h"
 
 void EncoderNode::Decode(std::string raw_data) {
-    // cout << "DECODE " << raw_data << endl;
-
     if (raw_data[0] == '[') {
         isList = true;
         DecodeList(raw_data); 
@@ -20,7 +19,6 @@ void EncoderNode::Decode(std::string raw_data) {
 }
 
 void EncoderNode::DecodeList(std::string raw_data) {
-    //cout << "DECODE LIST" << endl;
     std::vector<EncoderNode*> *nodes = new std::vector<EncoderNode*>();
     for (int i = 1; i < raw_data.size() - 1; i++) {
         // Decode curent object
@@ -60,18 +58,15 @@ void EncoderNode::DecodeList(std::string raw_data) {
     }
 
     this->obj_data = (void*) nodes;
-    //cout << "DONE DECODE LIST" << endl;
 }
 
 void EncoderNode::DecodeObj(std::string raw_data) {
-    //cout << "DECODE OBJ" << endl;
     std::map<std::string, EncoderNode*> *nodes = new std::map<std::string, EncoderNode*>();
     for (int i = 1; i < raw_data.size(); i++) {
         // Parse name
         bool quote = false;
         bool escaped = false;
         std::string name = ParseToken(raw_data, i);
-        //cout << "PARSED NAME " << name << endl;
         i = i + name.size() + 1;
         // Parse object now
         std::string obj_data = "";
@@ -108,7 +103,6 @@ void EncoderNode::DecodeObj(std::string raw_data) {
             }
 
             obj_data = raw_data.substr(i, (j - i + 1));
-            //cout << "PARSED OBJ " << obj_data << endl;
         }
 
         i = i + obj_data.size();
@@ -118,19 +112,14 @@ void EncoderNode::DecodeObj(std::string raw_data) {
     }
 
     this->obj_data = (void*) nodes;
-    //cout << "DECODE OBJ DONE" << endl;
 }
 
 void EncoderNode::DecodeValue(std::string raw_data) {
-    //cout << "DECODE VALUE" << endl;
     std::string *value = new std::string(raw_data.substr(1, raw_data.size() - 2));
     this->obj_data = (void*) value;
-    //cout << "DECODED VALUE " << *value << endl;
-    //cout << "DONE DECODE VALUE" << endl;
 }
 
 std::string EncoderNode::ParseToken(std::string raw_data, int pos) {
-    //cout << "PARSE TOKEN" << endl;
     bool quote = false;
     bool escaped = false;
     std::string token = "";
@@ -153,7 +142,6 @@ std::string EncoderNode::ParseToken(std::string raw_data, int pos) {
     }
 
     return token;
-    //cout << "DONE PARSE TOKEN" << endl;
 }
 
 std::string EncoderNode::RemoveIndentSpaces(std::string raw_obj_data) {
@@ -189,20 +177,15 @@ std::string EncoderNode::Encode(int indent) {
 
     std::string data = "";
     if (isValue) {
-        //cout << "ENCODE VALUE" << endl;
         data = indent_string + *((std::string*) this->obj_data) + "\n";
-        //cout << "DONE ENCODE VALUE: " << data << endl;
     } else if (isList) {
-        //cout << "ENCODE LIST" << endl;
         data = indent_string + "[\n";
         std::vector<EncoderNode*> *nodes = (std::vector<EncoderNode*>*) this->obj_data;
         for (int i = 0; i < nodes->size(); i++) {
             data = data + (*nodes)[i]->Encode(indent + 4);
         }
         data = data + indent_string + "]\n"; 
-        //cout << "DONE ENCODE LIST" << data << endl;
     } else if (isObj) {
-        //cout << "ENCODE OBJ" << endl;
         data = indent_string + "{\n";
         std::map<std::string, EncoderNode*> *nodes = (std::map<std::string, EncoderNode*>*) this->obj_data;
         for (std::map<std::string, EncoderNode*>::iterator it = nodes->begin(); it != nodes->end(); it++) {
@@ -210,7 +193,6 @@ std::string EncoderNode::Encode(int indent) {
             data = data + indent_string + key + ":\n" + (*nodes)[key]->Encode(indent + 4);
         }
         data = data + indent_string + "}\n"; 
-        //cout << "DONE ENCODE OBJ" << data << endl;
     }
 
     return data;

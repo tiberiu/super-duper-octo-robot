@@ -74,10 +74,8 @@ void GameContext::LoadScene(std::string sceneName) {
         this->activeScene = NULL;
     }
 
-    std::cout << "LOADING SCENE" << std::endl;
     for (int i = 0; i < this->scenes.size(); i++) {
         if (this->scenes[i]->name == sceneName) {
-            std::cout << "FOUND SCENE" << std::endl;
             this->activeScene = this->scenes[i];
             this->activeScene->LoadScene();
             break;

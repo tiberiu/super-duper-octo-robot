@@ -41,11 +41,9 @@ vector<Scene*> Serializer::LoadGameData(string raw_data) {
 void Serializer::LoadScene(string raw_data, Scene& scene) {
     EncoderNode* data = LoadData(raw_data);
 
-    cout << "DECODED DATA" << endl;
     // TODO: Assert data.isList
     vector<void*> *gameObjectsData = (vector<void*>*) data->obj_data;
     for (int i = 0; i < gameObjectsData->size(); i++) {
-        cout << "ITERATING GAMEOBJECTS" << endl;
         // TODO: Assert gameObjectsData[i].isObj
         // TODO: Assert gameObjectsData[i]->__obj_type = GameObject
         EncoderNode* gameObjectNode = (EncoderNode*) (*gameObjectsData)[i];
@@ -80,16 +78,12 @@ Component* Serializer::DeserializeComponent(EncoderNode* componentNode) {
     map<string, EncoderNode*> *componentData = (map<string, EncoderNode*> *) componentNode->obj_data;
     string obj_type = *(string*) ((*componentData)["__obj_type"]->obj_data);
 
-    cout << "DESERIALIZE TYPE " << obj_type << endl;
-
     // START_CODE_COMPONENT_NAME_INTROSPECTION
     Component* comp;
     if (obj_type == "TransformComponent") {
         comp = DeserializeTransform(componentNode);
-        cout << "DESERIALIZED TRANSFORM" << endl;
     } else if (obj_type == "RendererComponent") {
         comp = DeserializeRenderer(componentNode);
-        cout << "DESERIALIZED RENDERER" << endl;
     }
     // END_CODE_COMPONENT_NAME_INTROSPECTION
 
@@ -98,9 +92,7 @@ Component* Serializer::DeserializeComponent(EncoderNode* componentNode) {
 
 // Primitive Objects serializers
 int Serializer::DeserializeInt(EncoderNode* objNode) {
-    map<string, void*>* data = (map<string, void*>*) objNode->obj_data;
-    EncoderNode* valNode = (EncoderNode*) (*data)["value"];
-    string strValue = *(string*) (valNode->obj_data); 
+    string strValue = *(string*) (objNode->obj_data); 
     int val = atoi(strValue.c_str());
     return val;
 }
@@ -116,9 +108,7 @@ vector<int> Serializer::DeserializeIntList(EncoderNode* objNode) {
 }
 
 string Serializer::DeserializeString(EncoderNode* objNode) {
-    map<string, void*>* data = (map<string, void*>*) objNode->obj_data;
-    EncoderNode* valNode = (EncoderNode*) (*data)["value"];
-    string strValue = *(string*) (valNode->obj_data);
+    string strValue = *(string*) (objNode->obj_data);
     return strValue; 
 }
 
@@ -134,11 +124,8 @@ vector<string> Serializer::DeserializeStringList(EncoderNode* objNode) {
 
 float Serializer::DeserializeFloat(EncoderNode* objNode) {
     map<string, void*>* data = (map<string, void*>*) objNode->obj_data;
-    EncoderNode* valNode = (EncoderNode*) (*data)["value"];
-    string strValue = *(string*) (valNode->obj_data);
-    cout << "StrValue " << strValue << endl;
+    string strValue = *(string*) (objNode->obj_data);
     float val = atof(strValue.c_str());
-    cout << "Final Value " << val << endl;
 
     return val; 
 }

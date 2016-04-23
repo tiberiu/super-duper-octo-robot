@@ -7,17 +7,8 @@
 using namespace std;
 
 int main() {
-    ifstream f("tests/test_data/sample_data.in");
-    string data;
-    while (!f.eof()) {
-        string temp;
-        getline(f, temp);
-        cout << data << flush << endl;
-        data = data + temp;
-    }
-
-
     Serializer serializer;
+    string data = serializer.LoadRawData("tests/test_data/sample_data.in");
     EncoderNode* node = serializer.LoadData(data);
     string output = node->Encode();
 

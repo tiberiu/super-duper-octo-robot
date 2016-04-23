@@ -1,28 +1,28 @@
 [
 {"__obj_type": "GameObject",
-"name": {"__obj_type": "string", "value": "go1"},
+"name": "go1",
 "components": 
     [{
     "__obj_type": "TransformComponent",
     "position": {
         "__obj_type": "Vector3",
-        "x" : {"__obj_type": "float", "value": "0"},
-        "y" : {"__obj_type": "float", "value": "0"},
-        "z" : {"__obj_type": "float", "value": "2"}
+        "x" : "0",
+        "y" : "0",
+        "z" : "2"
     },
     "rotation": 
         {
         "__obj_type": "Vector3",
-        "x": {"__obj_type": "float", "value": "0"},
-        "y": {"__obj_type": "float", "value": "0"},
-        "z": {"__obj_type": "float", "value": "0"}        
+        "x": "0",
+        "y": "0",
+        "z": "0" 
         },
     "scale":
         {
         "__obj_type": "Vector3",
-        "x": {"__obj_type": "float", "value": "0"},
-        "y": {"__obj_type": "float", "value": "0"},
-        "z": {"__obj_type": "float", "value": "0"} 
+        "x": "0",
+        "y": "0",
+        "z": "0"
         } 
     },
     {
@@ -31,24 +31,24 @@
         {
         "vertices": [
             {"__obj_type": "Vector3",
-            "x": {"__obj_type": "float", "value": "-0.5"},
-            "y": {"__obj_type": "float", "value": "-0.2"},
-            "z": {"__obj_type": "float", "value": "0"}
+            "x": "-0.5",
+            "y": "-0.2",
+            "z": "0"
             },
             {"__obj_type": "Vector3",
-            "x": {"__obj_type": "float", "value": "0.5"},
-            "y": {"__obj_type": "float", "value": "-0.2"},
-            "z": {"__obj_type": "float", "value": "0"}
+            "x": "0.5",
+            "y": "-0.2",
+            "z": "0"
             },
             {"__obj_type": "Vector3",
-            "x": {"__obj_type": "float", "value": "0"},
-            "y": {"__obj_type": "float", "value": "0.5"},
-            "z": {"__obj_type": "float", "value": "0"}
+            "x": "0"
+            "y": "0.5",
+            "z": "0"
             }],
         "triangles": [
-            {"__obj_type": "int", "value": "0"},
-            {"__obj_type": "int", "value": "1"},
-            {"__obj_type": "int", "value": "2"}
+            "0",
+            "1",
+            "2"
         ]
         }
     }]

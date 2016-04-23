@@ -15,13 +15,11 @@ int main() {
 
     GameContext* gameContext = new GameContext();
     gameContext->Init();
- 
+
     for (int i = 0; i < scenes.size(); i++) {
-        cout << scenes[i]->name << " " << scenes[i]->dataPath << endl;
         gameContext->AddScene(scenes[i]);
     }
 
-    cout << "LOAD SCENE " << scenes[1]->name << endl;
     gameContext->LoadScene(scenes[1]->name);
     gameContext->StartEngine(); 
 
