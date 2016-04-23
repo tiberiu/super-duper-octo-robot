@@ -1,4 +1,4 @@
-#include "source/components/component.h"
+#include "components/component.h"
 
 Component::Component() {
     isActive = true; 

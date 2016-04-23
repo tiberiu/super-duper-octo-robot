@@ -3,7 +3,7 @@
 #include <map>
 #include <iostream>
 
-#include "source/serializer/encoder.h"
+#include "serializer/encoder.h"
 
 void EncoderNode::Decode(std::string raw_data) {
     if (raw_data[0] == '[') {

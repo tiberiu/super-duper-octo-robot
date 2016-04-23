@@ -1,5 +1,5 @@
-#include "source/serializer/serializer.h"
-#include "source/gameobject.h"
+#include "serializer/serializer.h"
+#include "gameobject.h"
 
 EncoderNode* Serializer::LoadData(string raw_data) {
     raw_data = EncoderNode::RemoveIndentSpaces(raw_data);

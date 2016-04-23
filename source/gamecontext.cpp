@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "source/gamecontext.h"
+#include "gamecontext.h"
 
 static void error_callback(int error, const char* description)
 {

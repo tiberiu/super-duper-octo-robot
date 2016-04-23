@@ -1,4 +1,4 @@
-#include "source/geometry/vector3.h"
+#include "geometry/vector3.h"
 
 #include <cmath>
 #include <sstream>

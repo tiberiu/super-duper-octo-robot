@@ -1,5 +1,5 @@
-#include "source/components/component.h"
-#include "source/components/renderercomponent.h"
+#include "components/component.h"
+#include "components/renderercomponent.h"
 
 #include <GLFW/glfw3.h>
 #include <iostream>

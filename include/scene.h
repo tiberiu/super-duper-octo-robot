@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "source/gameobject.h"
+#include "gameobject.h"
 
 class Scene {
 private:

@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-#include "source/components/component.h"
+#include "components/component.h"
 
 class GameObject {
 public:

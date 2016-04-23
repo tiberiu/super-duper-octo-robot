@@ -1,4 +1,4 @@
-#include "source/gameobject.h"
+#include "gameobject.h"
 #include <iostream>
 
 void GameObject::AddComponent(Component* component) {

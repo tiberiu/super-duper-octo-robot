@@ -2,7 +2,7 @@
 #define _MESH_H
 
 #include <vector>
-#include "source/geometry/Vector3.h"
+#include "geometry/Vector3.h"
 
 class Mesh {
 public:

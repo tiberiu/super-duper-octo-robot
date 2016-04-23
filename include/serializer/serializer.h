@@ -8,17 +8,17 @@
 #include <iostream>
 #include <fstream>
 
-#include "source/components/component.h"
-#include "source/scene.h"
-#include "source/serializer/encoder.h"
+#include "components/component.h"
+#include "scene.h"
+#include "serializer/encoder.h"
 
 using namespace std;
 
 // START_CODE_INCLUDES
-#include "source/components/transformcomponent.h"
-#include "source/components/renderercomponent.h"
-#include "source/geometry/vector3.h"
-#include "source/geometry/mesh.h"
+#include "components/transformcomponent.h"
+#include "components/renderercomponent.h"
+#include "geometry/vector3.h"
+#include "geometry/mesh.h"
 // END_CODE_INCLUDES
 
 class Serializer {

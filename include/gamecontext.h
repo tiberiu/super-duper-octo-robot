@@ -5,8 +5,8 @@
 #include <string>
 #include <GLFW/glfw3.h>
 
-#include "source/gameobject.h"
-#include "source/scene.h"
+#include "gameobject.h"
+#include "scene.h"
 
 class GameContext {
 private:

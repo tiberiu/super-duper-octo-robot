@@ -1,7 +1,8 @@
 #ifndef _RENDERER_H
 #define _RENDERER_H
 
-#include "source/geometry/mesh.h"
+#include "components/component.h"
+#include "geometry/mesh.h"
 
 // EngineComponent(RendererComponent)
 class RendererComponent : public Component {

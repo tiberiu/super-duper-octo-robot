@@ -1,16 +1,16 @@
 #include <iostream>
 #include <fstream>
 
-#include "source/gamecontext.h"
-#include "source/scene.h"
-#include "source/serializer/serializer.h"
-#include "source/serializer/encoder.h"
+#include "gamecontext.h"
+#include "scene.h"
+#include "serializer/serializer.h"
+#include "serializer/encoder.h"
 
 using namespace std;
 
 int main() {
     Serializer serializer;
-    string rawGameData = serializer.LoadRawData("tests/test_data/test_game_data.in");
+    string rawGameData = serializer.LoadRawData("resources/test_data/test_game_data.in");
     vector<Scene*> scenes = serializer.LoadGameData(rawGameData);
 
     GameContext* gameContext = new GameContext();

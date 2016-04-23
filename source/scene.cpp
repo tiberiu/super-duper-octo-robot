@@ -1,5 +1,5 @@
-#include "source/scene.h"
-#include "source/serializer/serializer.h"
+#include "scene.h"
+#include "serializer/serializer.h"
 
 Scene::Scene(std::string name, std::string dataPath) {
     this->name = name;

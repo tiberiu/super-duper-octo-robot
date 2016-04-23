@@ -1,11 +1,11 @@
 [
     {"__obj_type": "Scene",
      "name": "scene1",
-     "dataPath": "tests/test_data/test_scene1"
+     "dataPath": "resources/test_data/test_scene1"
      },
     {"__obj_type": "Scene",
     "name": "scene2",
-    "dataPath": "tests/test_data/test_scene2"
+    "dataPath": "resources/test_data/test_scene2"
     }
 ]
     

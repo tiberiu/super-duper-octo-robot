@@ -1,14 +1,14 @@
 #include <iostream>
 #include <fstream>
 
-#include "source/serializer/serializer.h"
-#include "source/serializer/encoder.h"
+#include "serializer/serializer.h"
+#include "serializer/encoder.h"
 
 using namespace std;
 
 int main() {
     Serializer serializer;
-    string data = serializer.LoadRawData("tests/test_data/sample_data.in");
+    string data = serializer.LoadRawData("resources/test_data/sample_data.in");
     EncoderNode* node = serializer.LoadData(data);
     string output = node->Encode();
 

@@ -1,13 +1,13 @@
 #include <iostream> 
 #include <stdlib.h>
 
-#include "source/gamecontext.h"
-#include "source/gameobject.h"
+#include "gamecontext.h"
+#include "gameobject.h"
 
-#include "source/components/transformcomponent.h"
-#include "source/components/renderercomponent.h"
-#include "source/geometry/mesh.h"
-#include "source/geometry/vector3.h"
+#include "components/transformcomponent.h"
+#include "components/renderercomponent.h"
+#include "geometry/mesh.h"
+#include "geometry/vector3.h"
 
 int main() {
     Scene* scene1 = new Scene("MainScene", "main_scene.sc");
