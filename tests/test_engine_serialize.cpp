@@ -4,7 +4,6 @@
 #include "gamecontext.h"
 #include "scene.h"
 #include "serializer/serializer.h"
-#include "serializer/encoder.h"
 
 using namespace std;
 

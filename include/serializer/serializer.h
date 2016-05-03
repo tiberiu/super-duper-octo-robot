@@ -10,7 +10,7 @@
 
 #include "components/component.h"
 #include "scene.h"
-#include "serializer/encoder.h"
+#include "serializer/decoder/decoder.h"
 
 using namespace std;
 
@@ -23,31 +23,31 @@ using namespace std;
 
 class Serializer {
 public:
-    EncoderNode* LoadData(string raw_data);
+    Decoder::Node* LoadData(string raw_data);
     string LoadRawData(string filePath);
     vector<Scene*> LoadGameData(string raw_data); 
     void LoadScene(string raw_data, Scene& scene);
-    Component* DeserializeComponent(EncoderNode* componentNode);
+    Component* DeserializeComponent(Decoder::Node* componentNode);
 
 
     // Primitive object deserializers
-    int DeserializeInt(EncoderNode* objNode);
-    vector<int> DeserializeIntList(EncoderNode* objNode);
-    string DeserializeString(EncoderNode* objNode);
-    vector<string> DeserializeStringList(EncoderNode* objNode);
-    float DeserializeFloat(EncoderNode* objNode);
-    vector<float> DeserializeFloatList(EncoderNode* objNode);
+    int DeserializeInt(Decoder::Node* objNode);
+    vector<int> DeserializeIntList(Decoder::Node* objNode);
+    string DeserializeString(Decoder::Node* objNode);
+    vector<string> DeserializeStringList(Decoder::Node* objNode);
+    float DeserializeFloat(Decoder::Node* objNode);
+    vector<float> DeserializeFloatList(Decoder::Node* objNode);
 
     // START_CODE_COMPONENT_DESERIALIZERS_DECLARATION
-    TransformComponent* DeserializeTransform(EncoderNode* componentNode);
-    RendererComponent* DeserializeRenderer(EncoderNode* componentNode);
+    TransformComponent* DeserializeTransform(Decoder::Node* componentNode);
+    RendererComponent* DeserializeRenderer(Decoder::Node* componentNode);
     // END_CODE_COMPONENT_DESERIALIZERS_DECLARATION
 
     // START_CODE_OBJECT_DESERIALIZERS_DECLARATION
-    Vector3* DeserializeVector3(EncoderNode* objNode);
-    vector<Vector3*> DeserializeVector3List(EncoderNode* objNode);
-    Mesh* DeserializeMesh(EncoderNode* objNode);
-    vector<Mesh*> DeserializeMeshList(EncoderNode* objNode);
+    Vector3* DeserializeVector3(Decoder::Node* objNode);
+    vector<Vector3*> DeserializeVector3List(Decoder::Node* objNode);
+    Mesh* DeserializeMesh(Decoder::Node* objNode);
+    vector<Mesh*> DeserializeMeshList(Decoder::Node* objNode);
     // END_CODE_OBJECT_DESERIALIZERS_DECLARATION
 };
 #endif

@@ -7,11 +7,11 @@
 // EngineComponent(TransformComponent)
 class TransformComponent : public Component {
 public:
-    // EngineComponentField(Vector3, position)
+    // EngineField(Vector3, position)
     Vector3* position;
-    // EngineComponentField(Vector3, rotation)
+    // EngineField(Vector3, rotation)
     Vector3* rotation;
-    // EngineComponentField(Vector3, scale)
+    // EngineField(Vector3, scale)
     Vector3* scale;
 };
 
