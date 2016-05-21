@@ -18,11 +18,17 @@ OBJECTS_SRC:=$(filter-out $(BINARIES_SRC_DIR)/%, $(SOURCES))
 HEADERS:=$(shell find $(INCLUDES_DIR) -name *.h)
 
 OBJECTS:=$(patsubst $(SRC_DIR)/%.obj, $(BUILD_DIR)/%.obj, $(OBJECTS_SRC:%.cpp=%.obj))
-BINARIES:=$(patsubst $(BINARIES_SRC_DIR)/%.app, $(BIN_DIR)/%.app, $(BINARIES_SRC:%.cpp=%.app))
-TESTS_BIN=$(patsubst $(TEST_SRC_DIR)/%.app, $(BIN_TESTS_DIR)/%.app, $(TESTS_SRC:%.cpp=%.app))
+BINARIES:=$(patsubst $(BINARIES_SRC_DIR)/%, $(BIN_DIR)/%, $(BINARIES_SRC:%.cpp=%))
+TESTS_BIN=$(patsubst $(TEST_SRC_DIR)/%, $(BIN_TESTS_DIR)/%, $(TESTS_SRC:%.cpp=%))
 
 
-all: $(OBJECTS) $(BINARIES) $(TESTS_BIN)
+all: editor $(OBJECTS) $(BINARIES) $(TESTS_BIN)
+
+.PHONY: editor
+editor:
+	@echo "Building Editor"
+	@qmake -o editor/Makefile editor/editor.pro
+	@make -C editor/
 
 .PHONY: tests
 tests: $(OBJECTS) $(TESTS_BIN)
@@ -32,12 +38,12 @@ $(BUILD_DIR)/%.obj: source/%.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(BIN_TESTS_DIR)/%.app:./tests/%.cpp $(OBJECTS) $(HEADERS)
+$(BIN_TESTS_DIR)/%:./tests/%.cpp $(OBJECTS) $(HEADERS)
 	@echo "Creating $(notdir $@)"
 	@mkdir -p $(dir $@)
 	@$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) $< -o $@
 
-$(BIN_DIR)/%.app:./source/main/%.cpp $(OBJECTS) $(HEADERS)
+$(BIN_DIR)/%:./source/main/%.cpp $(OBJECTS) $(HEADERS)
 	@echo "Creating $(notdir $@)"
 	@mkdir -p $(dir $@)
 	@$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) $< -o $@

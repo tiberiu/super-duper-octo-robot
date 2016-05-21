@@ -1,4 +1,5 @@
 #include "serializer/serializer.h"
+#include "serializer/object_deserializers.h"
 #include "gameobject.h"
 
 Decoder::Node* Serializer::LoadData(string raw_data) {
@@ -56,6 +57,7 @@ void Serializer::LoadScene(string raw_data, Scene& scene) {
             break;
         }
 
+        ObjectDeserializers* deserializers = new ObjectDeserializers();
         Decoder::Node* componentsNode = (Decoder::Node*) (*gameObjectData)["components"];
         vector<Decoder::Node*> *componentsData = (vector<Decoder::Node*>*) componentsNode->data;
         for (int j = 0; j < componentsData->size(); j++) {
